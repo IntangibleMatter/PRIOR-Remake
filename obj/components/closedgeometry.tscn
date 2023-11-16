@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywr5h1qck0yv"]
+
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="1_kpbo6"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="2_n4yri"]
+[ext_resource type="Resource" uid="uid://q8nl5q4i4vua" path="res://assets/resources/ss2d_defaultblack.tres" id="3_jhueg"]
+
+[sub_resource type="Resource" id="Resource_hi1xc"]
+script = ExtResource("2_n4yri")
+_points = {}
+_point_order = Array[int]([])
+_constraints = {}
+_next_key = 0
+_material_overrides = {}
+
+[node name="SS2D_Shape_Closed" type="Node2D"]
+script = ExtResource("1_kpbo6")
+_points = SubResource("Resource_hi1xc")
+shape_material = ExtResource("3_jhueg")
+tessellation_stages = 8
+collision_polygon_node_path = NodePath("StaticBody2D/CollisionPolygon2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

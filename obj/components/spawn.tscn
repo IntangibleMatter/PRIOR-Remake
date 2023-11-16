@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0uvac1yihbnu"]
+
+[ext_resource type="Texture2D" uid="uid://csep76vbvcui" path="res://assets/graphics/player/spawn.png" id="1_dqupu"]
+[ext_resource type="Script" path="res://obj/components/spawn.gd" id="2_dx57b"]
+
+[node name="Spawn" type="Sprite2D"]
+texture = ExtResource("1_dqupu")
+offset = Vector2(0, -27)
+script = ExtResource("2_dx57b")
