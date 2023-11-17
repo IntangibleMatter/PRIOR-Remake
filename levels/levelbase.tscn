@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://0f3ahgtchmfa"]
+[gd_scene load_steps=5 format=3 uid="uid://0f3ahgtchmfa"]
 
 [ext_resource type="PackedScene" uid="uid://d0uvac1yihbnu" path="res://obj/components/spawn.tscn" id="1_ccs3c"]
+[ext_resource type="Script" path="res://levels/levelbase.gd" id="1_vfvvy"]
 [ext_resource type="FontFile" uid="uid://gyaoofmb3g7e" path="res://assets/fonts/Telegraphem.otf" id="3_8g241"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tifgd"]
@@ -9,17 +10,24 @@ font_size = 75
 font_color = Color(0, 0, 0, 1)
 
 [node name="levelbase" type="Node2D"]
+script = ExtResource("1_vfvvy")
 
 [node name="BaseLevel" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 position = Vector2(800, 600)
 scale = Vector2(2.5, 2.5)
+metadata/_edit_lock_ = true
 
-[node name="Geometry" type="Node2D" parent="."]
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Geometry" type="Node2D" parent="Env"]
+
+[node name="Decoration" type="Node2D" parent="Env"]
 
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="Spawn" parent="Spawns" instance=ExtResource("1_ccs3c")]
+visible = true
 
 [node name="Interactables" type="Node2D" parent="."]
 

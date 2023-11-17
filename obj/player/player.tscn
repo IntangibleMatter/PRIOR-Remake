@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://8cvtgbcjgv2o"]
+[gd_scene load_steps=6 format=3 uid="uid://8cvtgbcjgv2o"]
 
 [ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
 [ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
@@ -7,7 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd7bx"]
 size = Vector2(70, 60)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eg5lk"]
+polygon = PackedVector2Array(-35, -60, -35, 0, 35, 0, 35, -60)
+
 [node name="player" type="CharacterBody2D"]
+floor_snap_length = 3.0
 script = ExtResource("1_n8kvi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,3 +27,6 @@ position = Vector2(-35, -60)
 texture = ExtResource("3_md2b2")
 centered = false
 offset = Vector2(0, 9.375)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_eg5lk")
