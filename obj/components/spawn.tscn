@@ -5,5 +5,5 @@
 
 [node name="Spawn" type="Sprite2D"]
 texture = ExtResource("1_dqupu")
-offset = Vector2(0, -27)
+offset = Vector2(0, -30)
 script = ExtResource("2_dx57b")

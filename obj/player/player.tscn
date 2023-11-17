@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://8cvtgbcjgv2o"]
+
+[ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
+[ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
+[ext_resource type="Texture2D" uid="uid://dvokx4lw6rm00" path="res://assets/graphics/player/eye.svg" id="3_md2b2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd7bx"]
+size = Vector2(70, 60)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_n8kvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_qd7bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
+texture = ExtResource("1_owku0")
+
+[node name="EyeSprite" type="Sprite2D" parent="."]
+position = Vector2(-35, -60)
+texture = ExtResource("3_md2b2")
+centered = false
+offset = Vector2(0, 9.375)
