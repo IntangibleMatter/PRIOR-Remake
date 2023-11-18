@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfar0n5e44gmf"]
+
+[ext_resource type="Texture2D" uid="uid://hoc4in83q8gj" path="res://assets/graphics/interactables/button.svg" id="1_kc3nh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7l53"]
+size = Vector2(88, 28)
+
+[node name="GameButton" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_kc3nh")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_a7l53")

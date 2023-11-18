@@ -9,7 +9,7 @@ const eyepositions : Dictionary = {
 	"right": 49.5,
 	"left": 9.25,
 	"top": 9.375,
-	"bottom": 50.625
+	"bottom": 38.625
 }
 const eye_speed := 0.2
 
