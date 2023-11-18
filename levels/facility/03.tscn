@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://i38nodydh1sn"]
+[gd_scene load_steps=189 format=3 uid="uid://i38nodydh1sn"]
 
 [ext_resource type="PackedScene" uid="uid://0f3ahgtchmfa" path="res://levels/levelbase.tscn" id="1_n2pay"]
 [ext_resource type="Texture2D" uid="uid://dfsp7cubeb357" path="res://assets/originalgame/levels/255.png" id="2_jndty"]
@@ -298,6 +298,9 @@ Array[int]([0, 3]): 15
 }
 _next_key = 22
 _material_overrides = {}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lpwra"]
+polygon = PackedVector2Array(-0.103559, -0.103559, 824.426, -0.0597477, 712.001, 32.0048, 376.104, 32.1036, 376.067, 215.957, 464.067, 255.957, 464.062, 343.963, 540.062, 383.963, 540.072, 495.951, 632.072, 531.951, 632.019, 572.006, 604.03, 616.054, 508, 616, 498.143, 616.63, 493.68, 617.385, 489.516, 618.407, 485.638, 619.675, 482.037, 621.168, 478.703, 622.867, 475.625, 624.75, 472.793, 626.798, 470.198, 628.989, 465.673, 633.719, 461.967, 638.778, 459.001, 644, 456.69, 649.223, 454.954, 654.281, 452.876, 663.25, 452.11, 669.594, 452, 672, 452.104, 824.104, 419.991, 824.027, 379.956, 792.021, 379.896, 708.104, -0.103555, 708.104)
 
 [sub_resource type="Resource" id="Resource_l7eo0"]
 script = ExtResource("4_bypdr")
@@ -1309,6 +1312,9 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 visible = false
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(-0.103559, -0.103559, 824.426, -0.0597477, 712.001, 32.0048, 376.104, 32.1036, 376.067, 215.957, 464.067, 255.957, 464.062, 343.963, 540.062, 383.963, 540.072, 495.951, 632.072, 531.951, 632.019, 572.006, 604.03, 616.054, 508, 616, 498.143, 616.63, 493.68, 617.385, 489.516, 618.407, 485.638, 619.675, 482.037, 621.168, 478.703, 622.867, 475.625, 624.75, 472.793, 626.798, 470.198, 628.989, 465.673, 633.719, 461.967, 638.778, 459.001, 644, 456.69, 649.223, 454.954, 654.281, 452.876, 663.25, 452.11, 669.594, 452, 672, 452.104, 824.104, 419.991, 824.027, 379.956, 792.021, 379.896, 708.104, -0.103555, 708.104)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Env/Geometry/Wallleft" index="2"]
+occluder = SubResource("OccluderPolygon2D_lpwra")
 
 [node name="Platformright" type="StaticBody2D" parent="Env/Geometry" index="1"]
 
