@@ -51,28 +51,24 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0.0, FRICTION)
 	velocity.x = clamp(velocity.x, -SPEED, SPEED)
 	
-
 	move_and_slide()
 
-#
-#func _unhandled_input(event: InputEvent) -> void:
-#	if event.is_action_pressed("move_left"):
-#		update_eye("left")
-#	elif event.is_action_pressed("move_right"):
-#		update_eye("right")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("move_down"):
+		update_eye("down")
+	elif event.is_action_released("move_down"):
+		update_eye("up")
 
 
 func update_eye(target: String) -> void:
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	match target:
 		"left":
-			tween.tween_property(
-				eye_sprite, "offset:x", eyepositions.left,
-				eye_speed# * eye_sprite.position.x - (eye_sprite.position.x - eyepositions.left)
-			)
+			tween.tween_property(eye_sprite, "offset:x", eyepositions.left, eye_speed)
 		"right":
-			tween.tween_property(
-				eye_sprite, "offset:x", eyepositions.right,
-				eye_speed# * eye_sprite.position.x - (eye_sprite.position.x - eyepositions.right)
-			)
-	
+			tween.tween_property(eye_sprite, "offset:x", eyepositions.right, eye_speed)
+		"down":
+			tween.tween_property(eye_sprite, "offset:y", eyepositions.bottom, eye_speed)
+		"up":
+			tween.tween_property(eye_sprite, "offset:y", eyepositions.top, eye_speed)
