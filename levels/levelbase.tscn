@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0f3ahgtchmfa"]
+[gd_scene load_steps=6 format=3 uid="uid://0f3ahgtchmfa"]
 
 [ext_resource type="PackedScene" uid="uid://d0uvac1yihbnu" path="res://obj/components/spawn.tscn" id="1_ccs3c"]
 [ext_resource type="Script" path="res://levels/levelbase.gd" id="1_vfvvy"]
 [ext_resource type="FontFile" uid="uid://gyaoofmb3g7e" path="res://assets/fonts/Telegraphem.otf" id="3_8g241"]
+[ext_resource type="PackedScene" uid="uid://c2bdvyo3foyww" path="res://obj/components/exit.tscn" id="3_fgpty"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tifgd"]
 font = ExtResource("3_8g241")
@@ -27,7 +28,10 @@ metadata/_edit_lock_ = true
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="Spawn" parent="Spawns" instance=ExtResource("1_ccs3c")]
-visible = true
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("3_fgpty")]
 
 [node name="Interactables" type="Node2D" parent="."]
 

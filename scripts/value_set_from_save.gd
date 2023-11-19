@@ -1,3 +1,4 @@
+class_name SetFromSave
 extends Node
 
 @export var save_value : String
@@ -10,11 +11,11 @@ func _ready() -> void:
 
 
 func set_value() -> void:
-	if not property in self:
+	if not property in get_parent():
 		return
 	if Save.data.has(save_value):
 		if Save.data[save_value]:
-			set(property, value)
+			get_parent().set(property, value)
 #			set(property, convert_to_type(value, typeofvalue))
 
 #
