@@ -61,7 +61,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		update_eye("up")
 
 
-func update_eye(target: String) -> void:
+func update_eye(target: String, instant = false) -> void:
+	if instant:
+		match target:
+			"left":
+				eye_sprite.offset.x = eyepositions.left
+			"right":
+				eye_sprite.offset.x = eyepositions.right
+			"down":
+				eye_sprite.offset.y = eyepositions.bottom
+			"up":
+				eye_sprite.offset.y = eyepositions.top
+		return
 	var tween := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	match target:
 		"left":

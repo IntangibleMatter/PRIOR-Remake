@@ -10,7 +10,7 @@ size = Vector2(70, 60)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eg5lk"]
 polygon = PackedVector2Array(-35, -60, -35, 0, 35, 0, 35, -60)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 floor_snap_length = 3.0
 script = ExtResource("1_n8kvi")
 
