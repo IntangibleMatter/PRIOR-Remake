@@ -17,7 +17,7 @@ const eye_speed := 0.2
 #var last_dir : int = -1
 
 const SPEED := 300.0
-const ACCEL := 800.0
+const ACCEL := 1000.0
 const JUMP_VELOCITY := -485.0
 const FRICTION := 0.4
 
@@ -26,8 +26,32 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var prevdir : float = 0
 
+var antigrav : bool = false
+
 
 func _physics_process(delta: float) -> void:
+	if antigrav:
+		pass
+	else:
+		_move_normal(delta)
+
+
+func _move_antigrav(delta) -> void:
+	var touching := move_and_collide(velocity)
+	
+	if touching.get_collider() != null:
+		var angle := touching.get_angle()
+		if is_equal_approx(angle, PI/2) or is_equal_approx(angle, 3 * PI / 2):
+			velocity.y *= -1.1
+			
+		
+	else:
+		move_and_slide()
+	
+	
+
+
+func _move_normal(delta) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -50,7 +74,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0.0, FRICTION)
 	velocity.x = clamp(velocity.x, -SPEED, SPEED)
-	
+
 	move_and_slide()
 
 
