@@ -1,9 +1,18 @@
 extends Node
 
+signal data_changed(item: String, value: Variant)
+
 var data : Dictionary = {
-	"room": "01",
+	"room": "isolation",
 	"spawn": 0,
-	"electricity": true,
+	"electricity": false,
 	"double": true,
 	"antigrav": true,
+	"world_door": false,
+	"pitfall_door": false,
 }
+
+
+func set_data(item: String, value: Variant) -> void:
+	data[item] = value
+	emit_signal("data_changed", item, value)

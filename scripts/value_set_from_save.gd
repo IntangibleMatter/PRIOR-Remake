@@ -8,6 +8,7 @@ extends Node
 
 func _ready() -> void:
 	set_value()
+	Save.data_changed.connect(update_data)
 
 
 func set_value() -> void:
@@ -17,6 +18,11 @@ func set_value() -> void:
 		if Save.data[save_value]:
 			get_parent().set(property, value)
 #			set(property, convert_to_type(value, typeofvalue))
+
+func update_data(item: String, val: Variant) -> void:
+	if item == save_value and val:
+		if property in get_parent():
+			get_parent().set(property, value)
 
 #
 #func convert_to_type(val: String, type: Variant.Type) -> Variant:

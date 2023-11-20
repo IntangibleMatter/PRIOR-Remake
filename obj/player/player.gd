@@ -33,6 +33,8 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var prevdir : float = 0
 
+var fastfall : bool = false
+
 const antigrav_normal_tolerance := 0.3
 const antigrav_slowdown := 0.015
 const antigrav_friction := 0.003
@@ -40,16 +42,25 @@ const min_antigrav_speed := 50.0
 var antigrav : bool = false
 
 func _ready() -> void:
+	Save.data_changed.connect(update_data)
 	animation.animation_finished.connect(blink)
+	if Input.is_action_pressed("move_down"):
+		fastfall = true
 	blink()
+
+
+func update_data(item: String, value: Variant) -> void:
+	if item == "double":
+		has_doublejump = value
+	elif item == "antigrav":
+		has_antigrav = value
 
 
 func blink(_anim: StringName = "") -> void:
 	var time := randf_range(1.0, 5.0)
-	prints("blinktime", time)
 	await get_tree().create_timer(time).timeout
 	animation.play("blink")
-	print("blinking")
+
 
 func _physics_process(delta: float) -> void:
 	if antigrav:
@@ -60,7 +71,6 @@ func _physics_process(delta: float) -> void:
 
 func _move_antigrav(delta) -> void:
 	var touching := move_and_collide(velocity * delta)
-	print(velocity)
 	if touching != null:
 		var normal := touching.get_normal()
 		if abs(normal.x) < 1+antigrav_normal_tolerance and abs(normal.x) > 1-antigrav_normal_tolerance:
@@ -74,20 +84,17 @@ func _move_antigrav(delta) -> void:
 
 
 func _move_normal(delta) -> void:
-	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += (gravity * delta) * (4 if fastfall else 1)
 	else:
 		can_doublejump = true
 		can_antigrav = true
-	# Handle Jump.
 	if Input.is_action_pressed("move_jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 	elif (
 		(Input.is_action_pressed("move_jump") and abs(velocity.y) < 10)
 		or Input.is_action_just_pressed("move_jump"))\
 		and (can_doublejump and has_doublejump):
-			print("in the air")
 			velocity.y = JUMP_VELOCITY
 			can_doublejump = false
 
@@ -112,8 +119,10 @@ func _move_normal(delta) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_down"):
 		update_eye("down")
+		fastfall = true
 	elif event.is_action_released("move_down"):
 		update_eye("up")
+		fastfall = false
 	if event.is_action_pressed("move_antigrav"):
 		if has_antigrav:
 			if can_antigrav:

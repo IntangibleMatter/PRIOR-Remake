@@ -1339,8 +1339,8 @@ texture_scale = 1.81
 position = Vector2(1224, 673)
 shadow_enabled = true
 texture = ExtResource("10_lg70y")
-offset = Vector2(-72, 169)
-texture_scale = 2.25
+offset = Vector2(-96, 240)
+texture_scale = 3.0
 
 [node name="Spawn" parent="Spawns" index="0"]
 position = Vector2(1572, 428)
@@ -1359,7 +1359,6 @@ position = Vector2(24, 592)
 [node name="Exit" parent="Exits" index="0"]
 position = Vector2(1644, 332)
 shape = SubResource("RectangleShape2D_3rmxp")
-scene = "isolation"
 spawn = 1
 
 [node name="Exit2" parent="Exits" index="1" instance=ExtResource("9_tt10o")]
@@ -1371,6 +1370,7 @@ scene = "augment"
 position = Vector2(680, -12)
 shape = SubResource("RectangleShape2D_io633")
 scene = "world"
+spawn = 1
 
 [node name="Exit4" parent="Exits" index="3" instance=ExtResource("9_tt10o")]
 position = Vector2(-40, 496)
