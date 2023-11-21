@@ -16,4 +16,4 @@ func spawn_at(index: int) -> void:
 	else:
 		player.global_position = spawns.get_children()[0].global_position
 		add_child(player)
-		player.update_eye("right" if spawns.get_children()[index].facing == 0 else "left", true)
+		player.update_eye("right" if spawns.get_children()[0].facing == 0 else "left", true)
