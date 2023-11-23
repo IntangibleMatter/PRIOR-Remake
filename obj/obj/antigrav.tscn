@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://5g0levvn5e4g"]
+
+[ext_resource type="Script" path="res://obj/obj/antigrav.gd" id="1_17giv"]
+[ext_resource type="Texture2D" uid="uid://bdmam6uaxorva" path="res://assets/graphics/interactables/antigrav.svg" id="1_w54xu"]
+
+[sub_resource type="Animation" id="Animation_d7qgc"]
+resource_name = "float"
+length = 12.0
+loop_mode = 1
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, -30), Vector2(0, 30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_glnpe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4twnf"]
+_data = {
+"RESET": SubResource("Animation_glnpe"),
+"float": SubResource("Animation_d7qgc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78ufx"]
+size = Vector2(64, 180)
+
+[node name="antigrav" type="Area2D"]
+script = ExtResource("1_17giv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "float"
+libraries = {
+"": SubResource("AnimationLibrary_4twnf")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.762435)
+texture = ExtResource("1_w54xu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78ufx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

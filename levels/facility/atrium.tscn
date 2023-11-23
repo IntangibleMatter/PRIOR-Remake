@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjjlvf8bp20st"]
+[gd_scene load_steps=4 format=3 uid="uid://bjjlvf8bp20st"]
 
 [ext_resource type="PackedScene" uid="uid://0f3ahgtchmfa" path="res://levels/levelbase.tscn" id="1_1pd0x"]
 [ext_resource type="Texture2D" uid="uid://c6dd4c63jlvky" path="res://assets/originalgame/levels/269.png" id="2_olq2m"]
+[ext_resource type="PackedScene" uid="uid://ds1e3ydloq7ey" path="res://obj/obj/door.tscn" id="3_cey6p"]
 
 [node name="levelbase" instance=ExtResource("1_1pd0x")]
 
 [node name="BaseLevel" parent="." index="0"]
 texture = ExtResource("2_olq2m")
+
+[node name="Door" parent="Env/Geometry" index="0" instance=ExtResource("3_cey6p")]
+position = Vector2(816, 1040)
+rotation = -3.14159
+width = 108.0
+length = 150.0
+flag = "atrium_door"

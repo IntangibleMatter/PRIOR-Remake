@@ -7,7 +7,7 @@ var data : Dictionary = {
 	"spawn": 0,
 	"electricity": false,
 	"double": true,
-	"antigrav": true,
+	"antigrav": false,
 	"world_door": false,
 	"pitfall_door": false,
 	"research_door": false,

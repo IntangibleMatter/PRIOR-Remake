@@ -53,6 +53,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 floor_snap_length = 3.0
+safe_margin = 0.2
 script = ExtResource("1_n8kvi")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -76,10 +77,12 @@ shape = SubResource("RectangleShape2D_3x1m2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-35, -1)
 shape = SubResource("CircleShape2D_vycf5")
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2(35, -1)
 shape = SubResource("CircleShape2D_vycf5")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
