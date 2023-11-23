@@ -10,6 +10,7 @@ var data : Dictionary = {
 	"antigrav": true,
 	"world_door": false,
 	"pitfall_door": false,
+	"research_door": false,
 }
 
 
