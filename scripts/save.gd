@@ -5,7 +5,7 @@ signal data_changed(item: String, value: Variant)
 var data : Dictionary = {
 	"room": "isolation",
 	"spawn": 0,
-	"electricity": false,
+	"electricity": true,
 	"double": true,
 	"antigrav": false,
 	"world_door": false,

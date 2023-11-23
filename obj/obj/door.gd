@@ -17,6 +17,7 @@ extends AnimatableBody2D
 
 
 @export var open_speed : float = 3.0
+@export var open_delay : float = 0.0
 
 @export var flag : String = "electricity"
 
@@ -28,12 +29,12 @@ func _ready() -> void:
 			drawn_rect = Rect2(-width/2, 0, width, 0)
 	else:
 		drawn_rect = Rect2(-width/2, 0, width, length)
-	
+
 	occluder.occluder = OccluderPolygon2D.new()
 	if not collision.is_node_ready():
 		await collision.ready
 	refresh_rect()
-	
+
 
 func refresh_rect() -> void:
 	if Engine.is_editor_hint():
@@ -64,6 +65,7 @@ func rect_to_points(rect) -> PackedVector2Array:
 
 
 func open() -> void:
+	await get_tree().create_timer(open_delay).timeout
 	var tween := get_tree().create_tween().set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "drawn_rect:size:y", 0, open_speed)
 	tween.tween_method(refresh_polygons, 0, 1, open_speed)

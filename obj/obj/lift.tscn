@@ -1,0 +1,167 @@
+[gd_scene load_steps=7 format=3 uid="uid://dai2gr7sh2ek5"]
+
+[ext_resource type="Script" path="res://obj/obj/lift.gd" id="1_f232d"]
+[ext_resource type="Texture2D" uid="uid://c3uvdgf5vtw3x" path="res://assets/graphics/tilemap/lift.svg" id="2_7x6be"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4me2"]
+size = Vector2(180, 70)
+
+[sub_resource type="Animation" id="Animation_brm1y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-85, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-85, -428)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, -428)]
+}
+
+[sub_resource type="Animation" id="Animation_h7w5k"]
+resource_name = "lift"
+length = 16.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-85, 0), Vector2(-85, -428), Vector2(120, -428), Vector2(120, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(120, 0), Vector2(-85, 0), Vector2(-85, -428), Vector2(120, -428)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-85, -428), Vector2(120, -428), Vector2(120, 0), Vector2(-85, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(120, -428), Vector2(120, 0), Vector2(-85, 0), Vector2(-85, -428)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2qku"]
+_data = {
+"RESET": SubResource("Animation_brm1y"),
+"lift": SubResource("Animation_h7w5k")
+}
+
+[node name="lift" type="Node2D"]
+script = ExtResource("1_f232d")
+
+[node name="platform" type="AnimatableBody2D" parent="."]
+position = Vector2(-90, 0)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+texture = ExtResource("2_7x6be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource("RectangleShape2D_k4me2")
+
+[node name="platform2" type="AnimatableBody2D" parent="."]
+position = Vector2(120, 0)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+texture = ExtResource("2_7x6be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+shape = SubResource("RectangleShape2D_k4me2")
+
+[node name="platform3" type="AnimatableBody2D" parent="."]
+position = Vector2(-90, -428)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="platform3"]
+texture = ExtResource("2_7x6be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform3"]
+shape = SubResource("RectangleShape2D_k4me2")
+
+[node name="platform4" type="AnimatableBody2D" parent="."]
+position = Vector2(120, -428)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="platform4"]
+texture = ExtResource("2_7x6be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform4"]
+shape = SubResource("RectangleShape2D_k4me2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "lift"
+libraries = {
+"": SubResource("AnimationLibrary_p2qku")
+}

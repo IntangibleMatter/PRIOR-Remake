@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8cvtgbcjgv2o"]
+[gd_scene load_steps=9 format=3 uid="uid://8cvtgbcjgv2o"]
 
 [ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
 [ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
@@ -9,9 +9,6 @@ polygon = PackedVector2Array(-35, -60, -35, 0, 35, 0, 35, -60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x1m2"]
 size = Vector2(60, 70)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vycf5"]
-radius = 1.0
 
 [sub_resource type="Animation" id="Animation_dic3i"]
 length = 0.001
@@ -52,7 +49,8 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-floor_snap_length = 3.0
+floor_snap_length = 6.0
+platform_on_leave = 2
 safe_margin = 0.2
 script = ExtResource("1_n8kvi")
 
@@ -73,16 +71,6 @@ offset = Vector2(0, 9.375)
 position = Vector2(0, -30)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_3x1m2")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-35, -1)
-shape = SubResource("CircleShape2D_vycf5")
-disabled = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(35, -1)
-shape = SubResource("CircleShape2D_vycf5")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"

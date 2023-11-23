@@ -12,6 +12,7 @@ _data = {
 
 [node name="Door" type="AnimatableBody2D"]
 script = ExtResource("1_8gr8w")
+open_delay = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
