@@ -9,7 +9,7 @@ extends Area2D
 
 @export var scene : String = "isolation"
 @export var spawn : int = 0
-enum LEVEL_SECTIONS {FACILITY, BELONG, NUKE, SORRY}
+enum LEVEL_SECTIONS {FACILITY, ONE, FEW, MANY}
 @export var level_section : LEVEL_SECTIONS = LEVEL_SECTIONS.FACILITY
 
 @onready var collider: CollisionShape2D = $CollisionShape2D
@@ -24,18 +24,18 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
-	
+
 	var folder : String
 	match level_section:
 		LEVEL_SECTIONS.FACILITY:
 			folder = "facility"
-		LEVEL_SECTIONS.BELONG:
-			folder = "endings/belong"
-		LEVEL_SECTIONS.NUKE:
-			folder = "endings/nuke"
-		LEVEL_SECTIONS.SORRY:
-			folder = "endings/sorry"
-	
+		LEVEL_SECTIONS.ONE:
+			folder = "endings/one"
+		LEVEL_SECTIONS.FEW:
+			folder = "endings/few"
+		LEVEL_SECTIONS.MANY:
+			folder = "endings/many"
+
 	Save.data.spawn = spawn
 	Save.data.room = scene
 	Save.data.room_section = folder
