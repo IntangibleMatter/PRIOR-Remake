@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://jqrljl8uhayn"]
+
+[ext_resource type="PackedScene" uid="uid://0f3ahgtchmfa" path="res://levels/levelbase.tscn" id="1_31kk2"]
+[ext_resource type="Texture2D" uid="uid://m18b31ma7dxh" path="res://assets/originalgame/levels/288.png" id="2_wd285"]
+
+[node name="levelbase" instance=ExtResource("1_31kk2")]
+
+[node name="BaseLevel" parent="." index="0"]
+texture = ExtResource("2_wd285")

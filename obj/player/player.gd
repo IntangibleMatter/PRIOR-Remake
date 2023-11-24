@@ -23,7 +23,7 @@ var can_doublejump : bool = true
 # -1 is left, 1 is right
 #var last_dir : int = -1
 
-const SPEED := 300.0
+const SPEED := 250.0
 const ACCEL := 10000.0
 const JUMP_VELOCITY := -485.0
 const FRICTION := 0.4
@@ -36,9 +36,9 @@ var prevdir : float = 0
 var fastfall : bool = false
 
 const antigrav_normal_tolerance := 0.3
-const antigrav_slowdown := 0.015
+const antigrav_slowdown := 0.017
 const antigrav_friction := 0.003
-const min_antigrav_speed := 50.0
+const min_antigrav_speed := 40.0
 var antigrav : bool = false
 
 func _ready() -> void:
