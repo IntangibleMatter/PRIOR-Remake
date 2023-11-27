@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://beg7bo6vspuoj"]
+
+[ext_resource type="Shader" path="res://obj/components/sdf_shadow.gdshader" id="1_7q4jo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdrc8"]
+shader = ExtResource("1_7q4jo")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = 330.0
+shader_parameter/len = 30.001
+shader_parameter/fade_margin = 5.0
+
+[node name="SdfShadow" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pdrc8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

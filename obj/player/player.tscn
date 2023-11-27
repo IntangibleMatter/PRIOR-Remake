@@ -49,6 +49,8 @@ _data = {
 }
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+slide_on_ceiling = false
+floor_constant_speed = true
 floor_snap_length = 6.0
 platform_on_leave = 2
 safe_margin = 0.2
@@ -56,6 +58,7 @@ script = ExtResource("1_n8kvi")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_eg5lk")
+sdf_collision = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)

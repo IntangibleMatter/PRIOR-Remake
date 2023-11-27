@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var eye_sprite: Sprite2D = $EyeSprite
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
+const death := preload("res://obj/player/death.tscn")
+
 #const eyesprite : Texture2D = preload("res://assets/graphics/player/eye.svg")
 #var eyepos : Vector2
 const eyepositions : Dictionary = {
@@ -35,15 +37,16 @@ var prevdir : float = 0
 
 var fastfall : bool = false
 
-const antigrav_normal_tolerance := 0.3
-const antigrav_slowdown := 0.017
-const antigrav_friction := 0.003
-const min_antigrav_speed := 40.0
+const antigrav_normal_tolerance := 0.5
+const antigrav_slowdown := 0.016
+const antigrav_friction := 0.004
+const min_antigrav_speed := 110.0
 var antigrav : bool = false
 
 func _ready() -> void:
 	Save.data_changed.connect(update_data)
 	animation.animation_finished.connect(blink)
+	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
 	if Input.is_action_pressed("move_down"):
 		fastfall = true
 	blink()
@@ -73,12 +76,15 @@ func _move_antigrav(delta) -> void:
 	var touching := move_and_collide(velocity * delta)
 	if touching != null:
 		var normal := touching.get_normal()
+		prints("normal", normal)
 		if abs(normal.x) < 1+antigrav_normal_tolerance and abs(normal.x) > 1-antigrav_normal_tolerance:
 			velocity.x = 0
 		if abs(normal.y) < 1+antigrav_normal_tolerance and abs(normal.y) > 1-antigrav_normal_tolerance:
 			if abs(velocity.y) > min_antigrav_speed:
 				velocity.y *= 1.1
 				velocity.y = -velocity.y
+			else:
+				velocity.y = 0
 	velocity.y = lerp(velocity.y, 0.0, antigrav_slowdown)
 	velocity.x = lerp(velocity.x, 0.0, antigrav_friction)
 
@@ -92,7 +98,7 @@ func _move_normal(delta) -> void:
 	if Input.is_action_pressed("move_jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 	elif (
-		(Input.is_action_pressed("move_jump") and abs(velocity.y) < 10)
+		(Input.is_action_pressed("move_jump") and velocity.y > 5)
 		or Input.is_action_just_pressed("move_jump"))\
 		and (can_doublejump and has_doublejump):
 			velocity.y = JUMP_VELOCITY
@@ -130,8 +136,25 @@ func _unhandled_input(event: InputEvent) -> void:
 					velocity.y = JUMP_VELOCITY / 2
 				antigrav = true
 				can_antigrav = false
+				motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 			else:
 				antigrav = false
+				motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+	if event.is_action_pressed("reset"):
+		respawn()
+
+
+func respawn() -> void:
+	var scene := get_tree().current_scene
+	var d_sprite : Node2D = death.instantiate()
+	print(d_sprite)
+	scene.add_child(d_sprite)
+	d_sprite.global_position = global_position
+	prints("playerpos", global_position)
+	d_sprite.die("left" if eye_sprite.offset.x < 35 else "right")
+	if scene.has_method("spawn_at"):
+		scene.spawn_at(Save.data.spawn)
+		self.queue_free()
 
 
 func update_eye(target: String, instant = false) -> void:

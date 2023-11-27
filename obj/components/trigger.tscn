@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p1nba8frw5at"]
+
+[ext_resource type="Script" path="res://obj/components/trigger.gd" id="1_i2njp"]
+
+[node name="Trigger" type="Area2D" groups=["room"]]
+script = ExtResource("1_i2njp")

@@ -37,6 +37,5 @@ func _on_body_entered(body: Node2D) -> void:
 			folder = "endings/many"
 
 	Save.data.spawn = spawn
-	Save.data.room = scene
-	Save.data.room_section = folder
+	Save.set_data("room", "res://levels/{0}/{1}.tscn".format([folder, scene]))
 	get_tree().change_scene_to_file("res://levels/{0}/{1}.tscn".format([folder, scene]))
