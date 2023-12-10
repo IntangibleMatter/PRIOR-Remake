@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://8cvtgbcjgv2o"]
+[gd_scene load_steps=10 format=3 uid="uid://8cvtgbcjgv2o"]
 
 [ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
 [ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
+[ext_resource type="Texture2D" uid="uid://bqyqujooe0e3u" path="res://assets/graphics/player/playerfall.svg" id="2_4b8u3"]
 [ext_resource type="Texture2D" uid="uid://dvokx4lw6rm00" path="res://assets/graphics/player/eye.svg" id="3_md2b2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eg5lk"]
@@ -59,6 +60,13 @@ script = ExtResource("1_n8kvi")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_eg5lk")
 sdf_collision = false
+
+[node name="Fallsprite" type="Sprite2D" parent="."]
+position = Vector2(35, -60)
+rotation = 3.14159
+scale = Vector2(1, 1e-05)
+texture = ExtResource("2_4b8u3")
+centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)

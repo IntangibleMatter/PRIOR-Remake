@@ -5,11 +5,11 @@ const save_path := "user://prior.sav"
 signal data_changed(item: String, value: Variant)
 
 const base_data : Dictionary = {
-	"room": "res://levels/facility/isolation.tscn",
+	"room": "res://levels/facility/containment.tscn",
 	"spawn": 0,
 	"electricity": false,
-	"double": false,
-	"antigrav": false,
+	"double": true,
+	"antigrav": true,
 	"world_door": false,
 	"pitfall_door": false,
 	"research_door": false,
@@ -19,6 +19,7 @@ const base_data : Dictionary = {
 	"cycle_door": false,
 	"isolation_door": false,
 	"isolation_hide": false,
+	"containment_door": false,
 }
 
 var data := base_data.duplicate(true)

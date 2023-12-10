@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqd0qeqr0yu3s"]
+
+[ext_resource type="Script" path="res://obj/components/hidden_area.gd" id="1_r2d26"]
+
+[node name="HiddenArea" type="Area2D"]
+script = ExtResource("1_r2d26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
