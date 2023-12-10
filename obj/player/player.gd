@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var eye_sprite: Sprite2D = $EyeSprite
 @onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var fallsprite: Sprite2D = $Fallsprite
 
 const death := preload("res://obj/player/death.tscn")
 
@@ -92,7 +93,13 @@ func _move_antigrav(delta) -> void:
 func _move_normal(delta) -> void:
 	if not is_on_floor():
 		velocity.y += (gravity * delta) * (4 if fastfall else 1)
+		if velocity.y > 0:
+			get_tree().create_tween().tween_property(fallsprite, "scale:y", (velocity.y / (gravity * 3)), delta)
+			print(delta)
+		else:
+			get_tree().create_tween().tween_property(fallsprite, "scale:y", 0, delta)
 	else:
+		get_tree().create_tween().tween_property(fallsprite, "scale:y", 0, delta)
 		can_doublejump = true
 		can_antigrav = true
 	if Input.is_action_pressed("move_jump") and is_on_floor():
