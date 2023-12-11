@@ -20,6 +20,7 @@ const base_data : Dictionary = {
 	"isolation_door": false,
 	"isolation_hide": false,
 	"containment_door": false,
+	"low_door": false,
 }
 
 var data := base_data.duplicate(true)

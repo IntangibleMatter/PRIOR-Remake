@@ -84,7 +84,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_3x1m2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_1cf5g")
 }
+autoplay = "RESET"

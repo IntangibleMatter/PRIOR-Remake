@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _move_antigrav(delta) -> void:
+	fallsprite.scale.y = 0
 	var touching := move_and_collide(velocity * delta)
 	if touching != null:
 		var normal := touching.get_normal()
@@ -95,7 +96,6 @@ func _move_normal(delta) -> void:
 		velocity.y += (gravity * delta) * (4 if fastfall else 1)
 		if velocity.y > 0:
 			get_tree().create_tween().tween_property(fallsprite, "scale:y", (velocity.y / (gravity * 3)), delta)
-			print(delta)
 		else:
 			get_tree().create_tween().tween_property(fallsprite, "scale:y", 0, delta)
 	else:

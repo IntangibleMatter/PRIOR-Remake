@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://obj/components/trigger.gd" id="1_i2njp"]
 
-[node name="Trigger" type="Area2D" groups=["room"]]
+[node name="Trigger" type="Area2D"]
 script = ExtResource("1_i2njp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
