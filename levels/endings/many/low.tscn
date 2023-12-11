@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs6a8cjnn4sjx"]
+[gd_scene load_steps=6 format=3 uid="uid://bs6a8cjnn4sjx"]
 
 [ext_resource type="PackedScene" uid="uid://0f3ahgtchmfa" path="res://levels/levelbase.tscn" id="1_fvb6b"]
 [ext_resource type="Texture2D" uid="uid://dh3sxqvyupa2w" path="res://assets/originalgame/levels/275.png" id="2_ybwg4"]
+[ext_resource type="PackedScene" uid="uid://bwg0v5e4xecex" path="res://obj/obj/note.tscn" id="3_3xfqg"]
+[ext_resource type="Texture2D" uid="uid://524w3yl7ewpi" path="res://assets/graphics/documents/world/23.svg" id="4_ptaod"]
+[ext_resource type="Texture2D" uid="uid://ff1c0fgq7gg3" path="res://assets/graphics/documents/full/23.svg" id="5_xx23g"]
 
 [node name="levelbase" instance=ExtResource("1_fvb6b")]
 
 [node name="BaseLevel" parent="." index="0"]
 texture = ExtResource("2_ybwg4")
+
+[node name="Note" parent="Interactables" index="0" instance=ExtResource("3_3xfqg")]
+position = Vector2(1338.83, 751.363)
+texture = ExtResource("4_ptaod")
+note = ExtResource("5_xx23g")

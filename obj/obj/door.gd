@@ -43,8 +43,7 @@ func refresh_rect() -> void:
 	if Engine.is_editor_hint():
 		drawn_rect = Rect2(-width/2, 0, width, length)
 		return
-	if not Save.data[flag]:
-		if not close:
+	if not Save.data[flag] and not close:
 			drawn_rect = Rect2(-width/2, 0, width, length)
 	else:
 		drawn_rect = Rect2(-width/2, 0, width, 0)
@@ -69,6 +68,8 @@ func rect_to_points(rect) -> PackedVector2Array:
 
 
 func open() -> void:
+	if Engine.is_editor_hint():
+		return
 	await get_tree().create_timer(open_delay).timeout
 	var tween := get_tree().create_tween().set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "drawn_rect:size:y", (length if close else 0.0), open_speed)

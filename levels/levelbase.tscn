@@ -15,6 +15,7 @@ script = ExtResource("1_vfvvy")
 
 [node name="BaseLevel" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+z_index = -2
 position = Vector2(800, 600)
 scale = Vector2(2.5, 2.5)
 metadata/_edit_lock_ = true
