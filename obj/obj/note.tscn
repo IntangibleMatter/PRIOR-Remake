@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwg0v5e4xecex"]
 
-[ext_resource type="Texture2D" uid="uid://dra1d7e8o81m2" path="res://assets/graphics/documents/world/39.svg" id="1_i28mf"]
 [ext_resource type="Script" path="res://obj/obj/note.gd" id="1_qwru7"]
+[ext_resource type="Texture2D" uid="uid://dw1nd5y135f32" path="res://assets/graphics/documents/world/01.svg" id="2_fv2p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wggsc"]
 size = Vector2(128, 64)
 
-[node name="Note" type="Area2D"]
+[node name="Note" type="Area2D" groups=["notes"]]
+collision_layer = 2
 script = ExtResource("1_qwru7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -14,7 +15,7 @@ position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_wggsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_i28mf")
+texture = ExtResource("2_fv2p1")
 offset = Vector2(0, -22)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -5,6 +5,8 @@ extends Area2D
 	set(value):
 		shape = value
 		if Engine.is_editor_hint():
+			if not is_node_ready():
+				await ready
 			collider.shape = shape
 
 @export var scene : String = "isolation"
@@ -16,8 +18,8 @@ enum LEVEL_SECTIONS {FACILITY, ONE, FEW, MANY}
 
 func _ready() -> void:
 	await get_tree().process_frame
-	if not collider.is_node_ready():
-		await collider.ready
+	if not is_node_ready():
+		await ready
 	collider.shape = shape
 
 
@@ -38,4 +40,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 	Save.data.spawn = spawn
 	Save.set_data("room", "res://levels/{0}/{1}.tscn".format([folder, scene]))
-	get_tree().change_scene_to_file("res://levels/{0}/{1}.tscn".format([folder, scene]))
+	(
+		func() -> void:
+			get_tree().change_scene_to_file("res://levels/{0}/{1}.tscn".format([folder, scene]))
+	).call_deferred()

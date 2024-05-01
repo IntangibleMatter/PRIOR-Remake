@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print(body)
-	if not body.is_in_group("player"):
+	if not body.is_in_group("player") or Save.data.get(save_value, true):
 		return
 	if body.fastfall:
 		print("pressing!")

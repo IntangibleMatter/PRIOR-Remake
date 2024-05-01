@@ -9,6 +9,8 @@ extends Area2D
 	set(val):
 		shape = val
 		if Engine.is_editor_hint():
+			if not is_node_ready():
+				await ready
 			collision.shape = val
 
 
@@ -18,6 +20,8 @@ signal trigger_entered
 
 func _ready() -> void:
 	collision.shape = shape
+	if Engine.is_editor_hint():
+		return
 	if Save.data[save_value]:
 		triggered = true
 	if triggered:

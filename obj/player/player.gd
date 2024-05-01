@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var eye_sprite: Sprite2D = $EyeSprite
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var fallsprite: Sprite2D = $Fallsprite
+@onready var interaction_checker: Area2D = $InteractionChecker
 
 const death := preload("res://obj/player/death.tscn")
 
@@ -38,10 +39,12 @@ var prevdir : float = 0
 
 var fastfall : bool = false
 
+var frozen : bool = false
+
 const antigrav_normal_tolerance := 0.5
 const antigrav_slowdown := 0.016
 const antigrav_friction := 0.004
-const min_antigrav_speed := 110.0
+const min_antigrav_speed := 160.0
 var antigrav : bool = false
 
 func _ready() -> void:
@@ -67,10 +70,13 @@ func blink(_anim: StringName = "") -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if frozen: return
 	if antigrav:
 		_move_antigrav(delta)
 	else:
 		_move_normal(delta)
+	if not Save.data.read_note:
+		interact()
 
 
 func _move_antigrav(delta) -> void:
@@ -130,6 +136,10 @@ func _move_normal(delta) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		interact()
+	if frozen:
+		return
 	if event.is_action_pressed("move_down"):
 		update_eye("down")
 		fastfall = true
@@ -149,6 +159,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
 	if event.is_action_pressed("reset"):
 		respawn()
+	
 
 
 func respawn() -> void:
@@ -186,3 +197,13 @@ func update_eye(target: String, instant = false) -> void:
 			tween.tween_property(eye_sprite, "offset:y", eyepositions.bottom, eye_speed)
 		"up":
 			tween.tween_property(eye_sprite, "offset:y", eyepositions.top, eye_speed)
+
+
+func interact() -> void:
+	var p_interactions := interaction_checker.get_overlapping_areas()
+	for inter in p_interactions:
+		if inter.is_in_group("notes"):
+			Save.data.read_note = true
+			frozen = !frozen
+			inter.display_toggle(frozen)
+			break

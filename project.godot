@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Save="*res://scripts/save.gd"
+Music="*res://levels/menu/music.tscn"
 
 [display]
 

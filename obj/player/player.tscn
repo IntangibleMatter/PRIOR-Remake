@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8cvtgbcjgv2o"]
+[gd_scene load_steps=11 format=3 uid="uid://8cvtgbcjgv2o"]
 
 [ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
 [ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
@@ -49,6 +49,9 @@ _data = {
 "blink": SubResource("Animation_ycly8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mscti"]
+radius = 75.0067
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 slide_on_ceiling = false
 floor_constant_speed = true
@@ -88,3 +91,10 @@ libraries = {
 "": SubResource("AnimationLibrary_1cf5g")
 }
 autoplay = "RESET"
+
+[node name="InteractionChecker" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionChecker"]
+shape = SubResource("CircleShape2D_mscti")

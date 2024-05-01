@@ -3,6 +3,7 @@ extends Node2D
 const PLAYERSCENE := preload("res://obj/player/player.tscn")
 @onready var spawns: Node2D = $Spawns
 
+
 func _ready() -> void:
 	spawn_at(Save.data.spawn)
 

@@ -27,9 +27,10 @@ extends AnimatableBody2D
 var drawn_rect : Rect2
 
 func _ready() -> void:
-	if Save.data.has(flag):
-		if Save.data[flag] and not close:
-				drawn_rect = Rect2(-width/2, 0, width, 0)
+	if Engine.is_editor_hint():
+		return
+	if Save.data.get(flag, false) and not close:
+		drawn_rect = Rect2(-width/2, 0, width, 0)
 	else:
 		drawn_rect = Rect2(-width/2, 0, width, length)
 
@@ -74,6 +75,8 @@ func open() -> void:
 	var tween := get_tree().create_tween().set_parallel(true).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "drawn_rect:size:y", (length if close else 0.0), open_speed)
 	tween.tween_method(refresh_polygons, 0, 1, open_speed)
+	if not Save.data.get(flag, false):
+		Save.data[flag] = true
 
 
 func _process(_delta: float) -> void:

@@ -5,11 +5,12 @@ const save_path := "user://prior.sav"
 signal data_changed(item: String, value: Variant)
 
 const base_data : Dictionary = {
-	"room": "res://levels/facility/containment.tscn",
+	"room": "res://levels/facility/isolation.tscn",
 	"spawn": 0,
+	"read_note": false,
 	"electricity": false,
-	"double": true,
-	"antigrav": true,
+	"double": false,
+	"antigrav": false,
 	"world_door": false,
 	"pitfall_door": false,
 	"research_door": false,
@@ -28,7 +29,7 @@ var data := base_data.duplicate(true)
 
 func _ready() -> void:
 	load_game()
-	get_tree().change_scene_to_file(data.room)
+	(func() -> void: get_tree().change_scene_to_file(data.room)).call_deferred()
 
 func set_data(item: String, value: Variant) -> void:
 	data[item] = value
