@@ -4,15 +4,13 @@ extends Area2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 
-@onready var flash: ColorRect = $CanvasLayer/ColorRect
+const flash_scene := preload("res://obj/components/flash.tscn")
 
 var pressed : bool = false
 
 signal button_pressed
 
 func _ready() -> void:
-	flash.color.a = 0
-	flash.show()
 	if Save.data.has(save_value):
 		if Save.data[save_value]:
 			sprite.frame = 1
@@ -37,6 +35,4 @@ func _on_body_entered(body: Node2D) -> void:
 		emit_signal("button_pressed")
 		Save.set_data(save_value, true)
 		sprite.frame = 1
-		var tween := get_tree().create_tween()
-		tween.tween_property(flash, "color:a", 0.6, 0.05)
-		tween.tween_property(flash, "color:a", 0, 0.6)
+		get_tree().current_scene.add_child(flash_scene.instantiate())

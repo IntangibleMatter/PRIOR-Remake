@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0uvac1yihbnu" path="res://obj/components/spawn.tscn" id="8_qwd2l"]
 [ext_resource type="PackedScene" uid="uid://c2bdvyo3foyww" path="res://obj/components/exit.tscn" id="9_6eubq"]
 
-[sub_resource type="Resource" id="Resource_5y3yp"]
+[sub_resource type="Resource" id="Resource_onbs3"]
 script = ExtResource("4_6pbix")
 texture_idx = 14
 flip = false
@@ -21,9 +21,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(1792, -8)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_5y3yp")
+properties = SubResource("Resource_onbs3")
 
-[sub_resource type="Resource" id="Resource_qvu8i"]
+[sub_resource type="Resource" id="Resource_84cwc"]
 script = ExtResource("4_6pbix")
 texture_idx = -14
 flip = false
@@ -34,9 +34,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(1792, 544)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_qvu8i")
+properties = SubResource("Resource_84cwc")
 
-[sub_resource type="Resource" id="Resource_588me"]
+[sub_resource type="Resource" id="Resource_4lqn7"]
 script = ExtResource("4_6pbix")
 texture_idx = -24
 flip = false
@@ -47,9 +47,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(-424, -8)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_588me")
+properties = SubResource("Resource_4lqn7")
 
-[sub_resource type="Resource" id="Resource_pt8x2"]
+[sub_resource type="Resource" id="Resource_gs64h"]
 script = ExtResource("4_6pbix")
 texture_idx = 14
 flip = false
@@ -60,9 +60,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(1792, -8)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_pt8x2")
+properties = SubResource("Resource_gs64h")
 
-[sub_resource type="Resource" id="Resource_cx5i2"]
+[sub_resource type="Resource" id="Resource_1p583"]
 script = ExtResource("4_6pbix")
 texture_idx = 19
 flip = false
@@ -73,9 +73,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(-216, 544)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_cx5i2")
+properties = SubResource("Resource_1p583")
 
-[sub_resource type="Resource" id="Resource_hpdr3"]
+[sub_resource type="Resource" id="Resource_55nhx"]
 script = ExtResource("4_6pbix")
 texture_idx = -14
 flip = false
@@ -86,9 +86,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(-216, 752)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_hpdr3")
+properties = SubResource("Resource_55nhx")
 
-[sub_resource type="Resource" id="Resource_mdm5f"]
+[sub_resource type="Resource" id="Resource_5ykey"]
 script = ExtResource("4_6pbix")
 texture_idx = 0
 flip = false
@@ -99,9 +99,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(-424, 1208)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_mdm5f")
+properties = SubResource("Resource_5ykey")
 
-[sub_resource type="Resource" id="Resource_hwxjv"]
+[sub_resource type="Resource" id="Resource_4yvci"]
 script = ExtResource("4_6pbix")
 texture_idx = 13
 flip = false
@@ -112,9 +112,9 @@ script = ExtResource("5_5t0r7")
 position = Vector2(1784, 752)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_hwxjv")
+properties = SubResource("Resource_4yvci")
 
-[sub_resource type="Resource" id="Resource_lqq2j"]
+[sub_resource type="Resource" id="Resource_qieio"]
 script = ExtResource("4_6pbix")
 texture_idx = 0
 flip = false
@@ -125,7 +125,7 @@ script = ExtResource("5_5t0r7")
 position = Vector2(1784, 1208)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_lqq2j")
+properties = SubResource("Resource_qieio")
 
 [sub_resource type="Resource" id="Resource_16hui"]
 script = ExtResource("6_shxr8")
@@ -188,7 +188,7 @@ position = Vector2(48, 752)
 [node name="Exit" parent="Exits" index="0"]
 position = Vector2(1664, 648)
 shape = SubResource("RectangleShape2D_55ryy")
-scene = "low"
+scene = "ignorance"
 spawn = 2
 level_section = 3
 

@@ -18,15 +18,4 @@ hframes = 2
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_a7l53")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://blkd1w06klwb0"]
+[gd_scene load_steps=4 format=3 uid="uid://blkd1w06klwb0"]
 
 [ext_resource type="PackedScene" uid="uid://0f3ahgtchmfa" path="res://levels/levelbase.tscn" id="1_yw2wm"]
 [ext_resource type="Texture2D" uid="uid://qukvql2w6tnc" path="res://assets/originalgame/levels/278.png" id="2_thnns"]
+[ext_resource type="PackedScene" uid="uid://dfar0n5e44gmf" path="res://obj/obj/button.tscn" id="3_pvr8a"]
 
 [node name="levelbase" instance=ExtResource("1_yw2wm")]
 
 [node name="BaseLevel" parent="." index="0"]
 texture = ExtResource("2_thnns")
+
+[node name="GameButton" parent="Interactables" index="0" instance=ExtResource("3_pvr8a")]
+position = Vector2(240, 752)
+save_value = "the_many"
+
+[node name="Label" parent="ColorRect" index="0"]
+text = "the many"
