@@ -29,6 +29,7 @@ extends Area2D
 		if Engine.is_editor_hint():
 			note_display.texture = texture
 
+@export var note_overrides: Array[Texture]
 
 func _ready() -> void:
 	note_display.texture = note
