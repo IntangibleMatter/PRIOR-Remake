@@ -25,6 +25,7 @@ const base_data : Dictionary = {
 	"the_one": false, 
 	"the_few": false,
 	"the_many": false,
+	"rooms": []
 }
 
 var data := base_data.duplicate(true)
@@ -32,7 +33,7 @@ var data := base_data.duplicate(true)
 
 func _ready() -> void:
 	load_game()
-	(func() -> void: get_tree().change_scene_to_file(data.room)).call_deferred()
+	#(func() -> void: get_tree().change_scene_to_file(data.room)).call_deferred()
 	get_tree().change_scene_to_file.call_deferred(data.room)
 
 

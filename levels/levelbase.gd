@@ -5,6 +5,10 @@ const PLAYERSCENE := preload("res://obj/player/player.tscn")
 
 
 func _ready() -> void:
+	var scene_path := scene_file_path.trim_prefix("res://levels/").trim_suffix(".tscn")
+	# use this for map data
+	if not (Save.data.rooms as Array).has(scene_path):
+		Save.data.rooms.append(scene_path)
 	spawn_at(Save.data.spawn)
 
 
