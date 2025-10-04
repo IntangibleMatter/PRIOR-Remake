@@ -36,4 +36,3 @@ func _on_body_entered(body: Node2D) -> void:
 	monitoring = false
 	emit_signal("trigger_entered")
 	Save.set_data(save_value, true)
-

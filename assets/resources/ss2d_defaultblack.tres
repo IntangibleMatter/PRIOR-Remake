@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=10 format=3 uid="uid://q8nl5q4i4vua"]
 
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_jjdv0"]
+[ext_resource type="Script" uid="uid://c6qhdti23oyf8" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_jjdv0"]
 [ext_resource type="Texture2D" uid="uid://bqv8vdst02hyx" path="res://assets/graphics/general/black11.png" id="2_aff5o"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="3_uxrd1"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_78y22"]
-[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_47s83"]
+[ext_resource type="Script" uid="uid://bjt1klgokuks5" path="res://addons/rmsmartshape/normal_range.gd" id="3_uxrd1"]
+[ext_resource type="Script" uid="uid://bikceyq5x734o" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_78y22"]
+[ext_resource type="Script" uid="uid://eu18ieg1whh8" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_47s83"]
 [ext_resource type="Texture2D" uid="uid://dkmp6indauf0o" path="res://assets/graphics/general/black43.png" id="5_yfg6h"]
 
 [sub_resource type="Resource" id="Resource_r473o"]
@@ -14,26 +14,17 @@ textures_corner_outer = Array[Texture2D]([ExtResource("2_aff5o")])
 textures_corner_inner = Array[Texture2D]([ExtResource("2_aff5o")])
 textures_taper_left = Array[Texture2D]([ExtResource("2_aff5o")])
 textures_taper_right = Array[Texture2D]([ExtResource("2_aff5o")])
-randomize_texture = false
 use_corner_texture = false
 use_taper_texture = false
-fit_mode = 0
 
 [sub_resource type="Resource" id="Resource_ssguv"]
 script = ExtResource("3_uxrd1")
-begin = 0.0
 distance = 360.0
-edgeRendering = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_os0am"]
 script = ExtResource("4_78y22")
 edge_material = SubResource("Resource_r473o")
 normal_range = SubResource("Resource_ssguv")
-weld = true
-render = true
-z_index = 0
-z_as_relative = true
-offset = 0.0
 
 [resource]
 script = ExtResource("5_47s83")
@@ -41,5 +32,3 @@ _edge_meta_materials = Array[ExtResource("4_78y22")]([SubResource("Resource_os0a
 fill_textures = Array[Texture2D]([ExtResource("5_yfg6h")])
 fill_texture_z_index = 0
 fill_texture_show_behind_parent = true
-fill_mesh_offset = 0.0
-render_offset = 0.0

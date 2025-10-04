@@ -33,6 +33,18 @@ var data := base_data.duplicate(true)
 func _ready() -> void:
 	load_game()
 	(func() -> void: get_tree().change_scene_to_file(data.room)).call_deferred()
+	get_tree().change_scene_to_file.call_deferred(data.room)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_pressed():
+			if event.keycode == KEY_BACKSPACE:
+				data = base_data.duplicate(true)
+				get_tree().change_scene_to_file.call_deferred(data.room)
+
+
+
 
 func set_data(item: String, value: Variant) -> void:
 	data[item] = value

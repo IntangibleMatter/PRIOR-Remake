@@ -85,4 +85,3 @@ func _process(_delta: float) -> void:
 
 func _draw() -> void:
 	draw_rect(drawn_rect, Color.BLACK)
-

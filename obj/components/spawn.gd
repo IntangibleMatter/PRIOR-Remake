@@ -13,4 +13,3 @@ func _ready() -> void:
 		hide()
 	else:
 		show()
-

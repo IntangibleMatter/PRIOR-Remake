@@ -14,7 +14,7 @@ config/name="PRIOR Remake"
 run/main_scene="res://levels/facility/isolation.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="prior_remake"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -92,4 +92,5 @@ reset={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 anti_aliasing/quality/screen_space_aa=1

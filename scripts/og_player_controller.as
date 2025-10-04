@@ -1,160 +1,161 @@
-package §_-33§
+package LudumScript.Characters
 {
    import flash.display.MovieClip;
    import flash.events.Event;
-
-   [Embed(source="/_assets/assets.swf", symbol="symbol368")]
-   public class §_-60§ extends MovieClip
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol363")]
+   public class Player extends MovieClip
    {
+      
       public var mc_JumpFoot_1:MovieClip;
-
+      
       public var mc_Head_1:MovieClip;
-
+      
       public var mc_JumpFoot_2:MovieClip;
-
+      
       public var mc_LeftArm_2:MovieClip;
-
+      
       public var mc_RightArm_Push_1:MovieClip;
-
+      
       public var mc_RightArm_Push_2:MovieClip;
-
+      
       public var mc_Head_Push_2:MovieClip;
-
+      
       public var mc_Head_Push_1:MovieClip;
-
+      
       public var mc_LeftArm_Push_1:MovieClip;
-
+      
       public var mc_RightArm_2:MovieClip;
-
+      
       public var mc_LeftArm_Push_2:MovieClip;
-
+      
       public var mc_RightArm_1:MovieClip;
-
+      
       public var mc_Foot_Push_2:MovieClip;
-
+      
       public var mc_Foot_2:MovieClip;
-
+      
       public var mc_LeftArm_1:MovieClip;
-
+      
       public var mc_Foot_Push_1:MovieClip;
-
+      
       public var mc_Foot_1:MovieClip;
-
+      
       public var mc_Head_2:MovieClip;
-
-      public var §_-5V§:MovieClip;
-
-      public var §_-5F§:Boolean = true;
-
-      public var §else§:Boolean = true;
-
-      public var §_-8§:Boolean = true;
-
-      public var §_-5x§:Boolean = true;
-
-      public var §_-6I§:Number = 4;
-
-      public var static:Number = 1.035;
-
-      public var §_-2Y§:Number = 1.009;
-
-      public var §_-3z§:Number = -3;
-
-      public var §_-17§:Number = 0;
-
-      public var §_-2-§:Number = 0.55;
-
-      public var §_-0j§:Number = 2;
-
-      public var §_-3y§:Number = 19.6;
-
-      public var §_-1J§:Number = 4;
-
-      public var §_-4m§:Number = 0;
-
-      public var §_-23§:Number = 1;
-
-      public var §_-3G§:Number = 1;
-
-      public var §_-5v§:Number = 3.5;
-
-      public var §_-0T§:Number = 2.5;
-
-      public var §_-6R§:Boolean = false;
-
-      public var §_-6p§:Number = -7.2;
-
-      public var §_-64§:Boolean = false;
-
-      public var §_-1I§:Boolean = false;
-
-      public var §_-2t§:Boolean = false;
-
-      public var §_-04§:Boolean = false;
-
-      public var §true§:Boolean = false;
-
-      public var §_-5K§:Boolean = false;
-
-      public var §_-4i§:Boolean = false;
-
-      public var §_-4y§:Boolean = false;
-
-      public var §_-0V§:Boolean = false;
-
-      public var §_-5§:Number = 8;
-
-      public var §_-3i§:Number = this.§_-5§;
-
-      public var final:Number = 4;
-
-      public var §_-34§:Number = 3.25;
-
-      public var §_-i§:Number = -6;
-
-      public var §_-2k§:Number = 2.5;
-
-      public var §_-02§:Number = this.§_-i§;
-
-      public var §in §:Number = 0;
-
-      public var §_-40§:Number = 0.25;
-
-      public var § do§:Number = 0.65;
-
-      public var §_-C§:Number = 0.05;
-
-      public var §_-5E§:Number = 3;
-
-      public var §_-2w§:Number = 1.5;
-
-      public function §_-60§()
+      
+      public var mc_Eye:MovieClip;
+      
+      public var bCollisionEnabled:Boolean = true;
+      
+      public var bMovementEnabled:Boolean = true;
+      
+      public var bAnimationEnabled:Boolean = true;
+      
+      public var bDoubleJumpEnabled:Boolean = true;
+      
+      public var nCriticalPush:Number = 4;
+      
+      public var nZeroGravityDiv:Number = 1.035;
+      
+      public var nZeroGravityHorzDiv:Number = 1.009;
+      
+      public var nGravHopStrength:Number = -3;
+      
+      public var nVertSpeed:Number = 0;
+      
+      public var nFallSpeed:Number = 0.55;
+      
+      public var nVertPush:Number = 2;
+      
+      public var nVertMax:Number = 19.6;
+      
+      public var nAirControlDiv:Number = 4;
+      
+      public var nHorzSpeed:Number = 0;
+      
+      public var nHorzMod:Number = 1;
+      
+      public var nHorzPush:Number = 1;
+      
+      public var nHorzMax:Number = 3.5;
+      
+      public var nCrouchSpeedDiv:Number = 2.5;
+      
+      public var bHitGround:Boolean = false;
+      
+      public var nJumpStrength:Number = -7.2;
+      
+      public var bInJump:Boolean = false;
+      
+      public var bDoubleJump:Boolean = false;
+      
+      public var bStompDown:Boolean = false;
+      
+      public var bLeftArmHit:Boolean = false;
+      
+      public var bLeftArmPush:Boolean = false;
+      
+      public var bRightArmHit:Boolean = false;
+      
+      public var bRightArmPush:Boolean = false;
+      
+      public var bHeadHit:Boolean = false;
+      
+      public var bHeadPush:Boolean = false;
+      
+      public var nEyeDestDefault:Number = 8;
+      
+      public var nEyeDestinationHorz:Number = this.nEyeDestDefault;
+      
+      public var nEyeMoveSpeedHorz:Number = 4;
+      
+      public var nEyeMoveSpeedVert:Number = 3.25;
+      
+      public var nEyeUpper:Number = -6;
+      
+      public var nEyeLower:Number = 2.5;
+      
+      public var nEyeDestinationVert:Number = this.nEyeUpper;
+      
+      public var nDeathFallSpeed:Number = 0;
+      
+      public var nDeathFallAmp:Number = 0.25;
+      
+      public var nDeathMoveSpeed:Number = 0.65;
+      
+      public var nDeathAlphaSpeed:Number = 0.05;
+      
+      public var nDeathRotationSpeed:Number = 3;
+      
+      public var nDeathTotalSpeedMod:Number = 1.5;
+      
+      public function Player()
       {
          super();
          addFrameScript(0,this.frame1,13,this.frame14,44,this.frame45);
-         this.addEventListener(Event.ADDED_TO_STAGE,this.§_-5X§);
+         this.addEventListener(Event.ADDED_TO_STAGE,this.AddedOn);
       }
-
-      private function §_-5X§(param1:Event) : void
+      
+      private function AddedOn(param1:Event) : void
       {
-         this.removeEventListener(Event.ADDED_TO_STAGE,this.§_-5X§);
-         this.§_-5V§.cacheAsBitmap = true;
-         this.§_-5x§ = MovieClip(root).bDoubleJumpActivated;
+         this.removeEventListener(Event.ADDED_TO_STAGE,this.AddedOn);
+         this.mc_Eye.cacheAsBitmap = true;
+         this.bDoubleJumpEnabled = MovieClip(root).bDoubleJumpActivated;
          MovieClip(root).DisableZeroGravity();
-         this.addEventListener(Event.ENTER_FRAME,this.§_-5G§);
+         this.addEventListener(Event.ENTER_FRAME,this.RunPlayer);
       }
-
-      public function §_-0r§() : void
+      
+      public function PlayerDeathAnim() : void
       {
          if(!MovieClip(root).mc_PlayerDeath1)
          {
-            if(this.§_-5V§.x >= 0)
+            if(this.mc_Eye.x >= 0)
             {
-               MovieClip(root).mc_PlayerDeath1 = new §_-§();
+               MovieClip(root).mc_PlayerDeath1 = new PlayerDeath_R();
             }
             else
             {
-               MovieClip(root).mc_PlayerDeath1 = new §_-1g§();
+               MovieClip(root).mc_PlayerDeath1 = new PlayerDeath_L();
             }
             MovieClip(root).addChild(MovieClip(root).mc_PlayerDeath1);
             MovieClip(root).swapChildren(MovieClip(root).mc_PlayerDeath1,MovieClip(root).mc_Border);
@@ -167,13 +168,13 @@ package §_-33§
          }
          else if(!MovieClip(root).mc_PlayerDeath2)
          {
-            if(this.§_-5V§.x >= 0)
+            if(this.mc_Eye.x >= 0)
             {
-               MovieClip(root).mc_PlayerDeath2 = new §_-§();
+               MovieClip(root).mc_PlayerDeath2 = new PlayerDeath_R();
             }
             else
             {
-               MovieClip(root).mc_PlayerDeath2 = new §_-1g§();
+               MovieClip(root).mc_PlayerDeath2 = new PlayerDeath_L();
             }
             MovieClip(root).addChild(MovieClip(root).mc_PlayerDeath2);
             MovieClip(root).swapChildren(MovieClip(root).mc_PlayerDeath2,MovieClip(root).mc_Border);
@@ -186,13 +187,13 @@ package §_-33§
          }
          else if(!MovieClip(root).mc_PlayerDeath3)
          {
-            if(this.§_-5V§.x >= 0)
+            if(this.mc_Eye.x >= 0)
             {
-               MovieClip(root).mc_PlayerDeath3 = new §_-§();
+               MovieClip(root).mc_PlayerDeath3 = new PlayerDeath_R();
             }
             else
             {
-               MovieClip(root).mc_PlayerDeath3 = new §_-1g§();
+               MovieClip(root).mc_PlayerDeath3 = new PlayerDeath_L();
             }
             MovieClip(root).addChild(MovieClip(root).mc_PlayerDeath3);
             MovieClip(root).swapChildren(MovieClip(root).mc_PlayerDeath3,MovieClip(root).mc_Border);
@@ -203,14 +204,14 @@ package §_-33§
                MovieClip(root).mc_PlayerDeath1 = null;
             }
          }
-         this.§_-6E§();
+         this.GC();
       }
-
-      public function §_-5G§(param1:Event) : *
+      
+      public function RunPlayer(param1:Event) : *
       {
          if(!MovieClip(root).bPaused && !MovieClip(root).bInDocument)
          {
-            if(this.§_-5F§)
+            if(this.bCollisionEnabled)
             {
                if(MovieClip(root).mc_Level.hitTestPoint(this.x,this.y,true))
                {
@@ -221,46 +222,46 @@ package §_-33§
                         MovieClip(root).RespawnPlayer();
                         return;
                      }
-                     this.y -= this.§_-6I§;
+                     this.y -= this.nCriticalPush;
                   }
                   else if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_1.x,this.y + this.mc_Head_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_2.x,this.y + this.mc_Head_2.y,true)))
                   {
-                     this.y += this.§_-6I§;
+                     this.y += this.nCriticalPush;
                   }
                }
                if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Foot_1.x,this.y + this.mc_Foot_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Foot_2.x,this.y + this.mc_Foot_2.y,true)))
                {
-                  this.§_-6R§ = true;
+                  this.bHitGround = true;
                   if(this.currentFrame >= 15)
                   {
                      this.gotoAndStop(1);
-                     if(this.§_-17§ > 6 && this.§_-8§)
+                     if(this.nVertSpeed > 6 && this.bAnimationEnabled)
                      {
-                        this.§_-5V§.gotoAndPlay(150);
+                        this.mc_Eye.gotoAndPlay(150);
                      }
                   }
                   if(!MovieClip(root).bZeroGravity)
                   {
-                     this.§_-17§ = 0;
+                     this.nVertSpeed = 0;
                   }
                   if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Foot_Push_1.x,this.y + this.mc_Foot_Push_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Foot_Push_2.x,this.y + this.mc_Foot_Push_2.y,true)))
                   {
-                     this.§_-17§ -= this.§_-0j§;
+                     this.nVertSpeed -= this.nVertPush;
                   }
                }
                else
                {
-                  if(this.§_-6R§)
+                  if(this.bHitGround)
                   {
-                     this.§_-6R§ = false;
-                     if(this.§_-8§ && !MovieClip(root).bZeroGravity)
+                     this.bHitGround = false;
+                     if(this.bAnimationEnabled && !MovieClip(root).bZeroGravity)
                      {
                         this.gotoAndPlay(15);
                      }
                   }
                   if(!MovieClip(root).bZeroGravity)
                   {
-                     this.§_-17§ += this.§_-2-§;
+                     this.nVertSpeed += this.nFallSpeed;
                   }
                }
                if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_JumpFoot_1.x,this.y + this.mc_JumpFoot_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_JumpFoot_2.x,this.y + this.mc_JumpFoot_2.y,true)))
@@ -269,9 +270,9 @@ package §_-33§
                   MovieClip(root).bJumpReleased = false;
                   MovieClip(root).bGoDoubleJump = false;
                   MovieClip(root).bGravUsed = false;
-                  this.§_-64§ = false;
-                  this.§_-1I§ = false;
-                  this.§_-2t§ = false;
+                  this.bInJump = false;
+                  this.bDoubleJump = false;
+                  this.bStompDown = false;
                   MovieClip(root).bOnGround = true;
                }
                else
@@ -280,107 +281,107 @@ package §_-33§
                }
                if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_LeftArm_1.x,this.y + this.mc_LeftArm_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_LeftArm_2.x,this.y + this.mc_LeftArm_2.y,true)))
                {
-                  this.§_-04§ = true;
+                  this.bLeftArmHit = true;
                   if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_LeftArm_Push_1.x,this.y + this.mc_LeftArm_Push_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_LeftArm_Push_2.x,this.y + this.mc_LeftArm_Push_2.y,true)))
                   {
-                     this.§true§ = true;
+                     this.bLeftArmPush = true;
                   }
                   else
                   {
-                     this.§true§ = false;
+                     this.bLeftArmPush = false;
                   }
                }
                else
                {
-                  this.§_-04§ = false;
+                  this.bLeftArmHit = false;
                }
                if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_RightArm_1.x,this.y + this.mc_RightArm_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_RightArm_2.x,this.y + this.mc_RightArm_2.y,true)))
                {
-                  this.§_-5K§ = true;
+                  this.bRightArmHit = true;
                   if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_RightArm_Push_1.x,this.y + this.mc_RightArm_Push_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_RightArm_Push_2.x,this.y + this.mc_RightArm_Push_2.y,true)))
                   {
-                     this.§_-4i§ = true;
+                     this.bRightArmPush = true;
                   }
                   else
                   {
-                     this.§_-4i§ = false;
+                     this.bRightArmPush = false;
                   }
                }
                else
                {
-                  this.§_-5K§ = false;
+                  this.bRightArmHit = false;
                }
                if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_1.x,this.y + this.mc_Head_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_2.x,this.y + this.mc_Head_2.y,true)))
                {
-                  this.§_-4y§ = true;
+                  this.bHeadHit = true;
                   if(Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_Push_1.x,this.y + this.mc_Head_Push_1.y,true)) || Boolean(MovieClip(root).mc_Level.hitTestPoint(this.x + this.mc_Head_Push_2.x,this.y + this.mc_Head_Push_2.y,true)))
                   {
-                     this.§_-0V§ = true;
+                     this.bHeadPush = true;
                   }
                   else
                   {
-                     this.§_-0V§ = false;
+                     this.bHeadPush = false;
                   }
                }
                else
                {
-                  this.§_-4y§ = false;
+                  this.bHeadHit = false;
                }
             }
-            if(this.§else§)
+            if(this.bMovementEnabled)
             {
-               if(this.§_-4y§)
+               if(this.bHeadHit)
                {
-                  if(this.§_-17§ < 0)
+                  if(this.nVertSpeed < 0)
                   {
-                     this.§_-17§ = 0;
+                     this.nVertSpeed = 0;
                   }
-                  if(this.§_-0V§)
+                  if(this.bHeadPush)
                   {
-                     this.§_-17§ += this.§_-0j§;
+                     this.nVertSpeed += this.nVertPush;
                   }
                }
                if(!MovieClip(root).bZeroGravity)
                {
-                  if(MovieClip(root).bOnGround && MovieClip(root).bJumping && !this.§_-4y§ && Boolean(MovieClip(root).bMovementInputEnabled))
+                  if(MovieClip(root).bOnGround && MovieClip(root).bJumping && !this.bHeadHit && Boolean(MovieClip(root).bMovementInputEnabled))
                   {
-                     this.§_-64§ = true;
-                     if(this.§_-8§)
+                     this.bInJump = true;
+                     if(this.bAnimationEnabled)
                      {
                         this.gotoAndStop(1);
                      }
                      if(MovieClip(root).bDown)
                      {
-                        this.§_-17§ = this.§_-6p§ / this.§_-0T§;
+                        this.nVertSpeed = this.nJumpStrength / this.nCrouchSpeedDiv;
                      }
                      else
                      {
-                        this.§_-17§ = this.§_-6p§;
+                        this.nVertSpeed = this.nJumpStrength;
                      }
                   }
-                  if(this.§_-5x§ && MovieClip(root).bMovementInputEnabled && !this.§_-1I§ && Boolean(MovieClip(root).bGoDoubleJump) && this.§_-6R§ == false)
+                  if(this.bDoubleJumpEnabled && MovieClip(root).bMovementInputEnabled && !this.bDoubleJump && Boolean(MovieClip(root).bGoDoubleJump) && this.bHitGround == false)
                   {
-                     this.§_-1I§ = true;
-                     if(this.§_-8§)
+                     this.bDoubleJump = true;
+                     if(this.bAnimationEnabled)
                      {
                         this.gotoAndStop(1);
                      }
                      if(MovieClip(root).bDown)
                      {
-                        this.§_-17§ = this.§_-6p§ / this.§_-0T§;
+                        this.nVertSpeed = this.nJumpStrength / this.nCrouchSpeedDiv;
                      }
                      else
                      {
-                        this.§_-17§ = this.§_-6p§;
+                        this.nVertSpeed = this.nJumpStrength;
                      }
                   }
-                  if(this.§_-17§ > this.§_-3y§)
+                  if(this.nVertSpeed > this.nVertMax)
                   {
-                     this.§_-17§ = this.§_-3y§;
+                     this.nVertSpeed = this.nVertMax;
                   }
-                  else if(this.§_-17§ < this.§_-3y§ * -1)
+                  else if(this.nVertSpeed < this.nVertMax * -1)
                   {
-                     this.§_-17§ = this.§_-3y§ * -1;
+                     this.nVertSpeed = this.nVertMax * -1;
                   }
                }
                else
@@ -389,51 +390,51 @@ package §_-33§
                   {
                      if(MovieClip(root).bJumping)
                      {
-                        this.§_-17§ -= this.§_-23§ / this.§_-1J§;
+                        this.nVertSpeed -= this.nHorzMod / this.nAirControlDiv;
                      }
                      else if(MovieClip(root).bDown)
                      {
-                        this.§_-17§ += this.§_-23§ / this.§_-1J§;
+                        this.nVertSpeed += this.nHorzMod / this.nAirControlDiv;
                      }
                   }
                   if(!MovieClip(root).bJumping && !MovieClip(root).bDown || MovieClip(root).bJumping && MovieClip(root).bDown || !MovieClip(root).bMovementInputEnabled)
                   {
-                     this.§_-17§ /= this.static;
+                     this.nVertSpeed /= this.nZeroGravityDiv;
                   }
-                  if(this.§_-6R§)
+                  if(this.bHitGround)
                   {
-                     if(this.§_-17§ > 0)
+                     if(this.nVertSpeed > 0)
                      {
-                        this.§_-17§ = 0;
+                        this.nVertSpeed = 0;
                      }
                      else
                      {
-                        this.§_-17§ -= this.§_-0j§;
+                        this.nVertSpeed -= this.nVertPush;
                      }
                   }
                }
-               if(this.§_-17§ < 0.1 && this.§_-17§ > -0.1 && this.§_-17§ != 0)
+               if(this.nVertSpeed < 0.1 && this.nVertSpeed > -0.1 && this.nVertSpeed != 0)
                {
-                  this.§_-17§ = 0;
+                  this.nVertSpeed = 0;
                }
-               if(this.§_-64§ && Boolean(MovieClip(root).bDown))
+               if(this.bInJump && Boolean(MovieClip(root).bDown))
                {
                   if(MovieClip(root).bMovementInputEnabled)
                   {
-                     if(this.§_-17§ < 0)
+                     if(this.nVertSpeed < 0)
                      {
-                        this.§_-17§ = 0;
+                        this.nVertSpeed = 0;
                      }
                      else
                      {
-                        this.§_-2t§ = true;
-                        this.y += this.§_-17§ * 2;
+                        this.bStompDown = true;
+                        this.y += this.nVertSpeed * 2;
                      }
                   }
                }
                else
                {
-                  this.y += this.§_-17§;
+                  this.y += this.nVertSpeed;
                }
                if(MovieClip(root).bMovementInputEnabled)
                {
@@ -441,136 +442,136 @@ package §_-33§
                   {
                      if(MovieClip(root).bMoveLeft)
                      {
-                        this.§_-4m§ -= this.§_-23§;
+                        this.nHorzSpeed -= this.nHorzMod;
                      }
                      if(MovieClip(root).bMoveRight)
                      {
-                        this.§_-4m§ += this.§_-23§;
+                        this.nHorzSpeed += this.nHorzMod;
                      }
                   }
                   else
                   {
                      if(MovieClip(root).bMoveLeft)
                      {
-                        this.§_-4m§ -= this.§_-23§ / this.§_-1J§;
+                        this.nHorzSpeed -= this.nHorzMod / this.nAirControlDiv;
                      }
                      if(MovieClip(root).bMoveRight)
                      {
-                        this.§_-4m§ += this.§_-23§ / this.§_-1J§;
+                        this.nHorzSpeed += this.nHorzMod / this.nAirControlDiv;
                      }
                   }
                }
-               if(!(this.§_-04§ && this.§_-5K§))
+               if(!(this.bLeftArmHit && this.bRightArmHit))
                {
-                  if(this.§_-04§)
+                  if(this.bLeftArmHit)
                   {
-                     if(this.§_-4m§ < 0)
+                     if(this.nHorzSpeed < 0)
                      {
-                        this.§_-4m§ = 0;
+                        this.nHorzSpeed = 0;
                      }
-                     if(this.§true§ && !MovieClip(root).bZeroGravity)
+                     if(this.bLeftArmPush && !MovieClip(root).bZeroGravity)
                      {
-                        this.§_-4m§ = this.§_-3G§;
+                        this.nHorzSpeed = this.nHorzPush;
                      }
                   }
-                  if(this.§_-5K§)
+                  if(this.bRightArmHit)
                   {
-                     if(this.§_-4m§ > 0)
+                     if(this.nHorzSpeed > 0)
                      {
-                        this.§_-4m§ = 0;
+                        this.nHorzSpeed = 0;
                      }
-                     if(this.§true§ && !MovieClip(root).bZeroGravity)
+                     if(this.bLeftArmPush && !MovieClip(root).bZeroGravity)
                      {
-                        this.§_-4m§ = this.§_-3G§ * -1;
+                        this.nHorzSpeed = this.nHorzPush * -1;
                      }
                   }
                }
                if(MovieClip(root).bZeroGravity)
                {
-                  this.§_-4m§ /= this.§_-2Y§;
+                  this.nHorzSpeed /= this.nZeroGravityHorzDiv;
                }
                else
                {
                   if(!MovieClip(root).bMoveLeft && !MovieClip(root).bMoveRight || Boolean(MovieClip(root).bMoveLeft) && Boolean(MovieClip(root).bMoveRight))
                   {
-                     if(this.§_-4m§ < 0 - this.§_-23§)
+                     if(this.nHorzSpeed < 0 - this.nHorzMod)
                      {
-                        this.§_-4m§ += this.§_-23§;
+                        this.nHorzSpeed += this.nHorzMod;
                      }
-                     else if(this.§_-4m§ > 0 + this.§_-23§)
+                     else if(this.nHorzSpeed > 0 + this.nHorzMod)
                      {
-                        this.§_-4m§ -= this.§_-23§;
+                        this.nHorzSpeed -= this.nHorzMod;
                      }
                      else
                      {
-                        this.§_-4m§ = 0;
+                        this.nHorzSpeed = 0;
                      }
                   }
-                  if(this.§_-4m§ > this.§_-5v§)
+                  if(this.nHorzSpeed > this.nHorzMax)
                   {
-                     this.§_-4m§ = this.§_-5v§;
+                     this.nHorzSpeed = this.nHorzMax;
                   }
-                  else if(this.§_-4m§ < this.§_-5v§ * -1)
+                  else if(this.nHorzSpeed < this.nHorzMax * -1)
                   {
-                     this.§_-4m§ = this.§_-5v§ * -1;
+                     this.nHorzSpeed = this.nHorzMax * -1;
                   }
                }
-               if(this.§_-4m§ < 0.1 && this.§_-4m§ > -0.1 && this.§_-4m§ != 0)
+               if(this.nHorzSpeed < 0.1 && this.nHorzSpeed > -0.1 && this.nHorzSpeed != 0)
                {
-                  this.§_-4m§ = 0;
+                  this.nHorzSpeed = 0;
                }
                if(Boolean(MovieClip(root).bOnGround) && Boolean(MovieClip(root).bDown))
                {
-                  this.x += this.§_-4m§ / this.§_-0T§;
+                  this.x += this.nHorzSpeed / this.nCrouchSpeedDiv;
                }
                else
                {
-                  this.x += this.§_-4m§;
+                  this.x += this.nHorzSpeed;
                }
             }
-            if(this.§_-8§)
+            if(this.bAnimationEnabled)
             {
-               if(this.§_-4m§ > 0)
+               if(this.nHorzSpeed > 0)
                {
-                  this.§_-3i§ = this.§_-5§;
+                  this.nEyeDestinationHorz = this.nEyeDestDefault;
                }
-               else if(this.§_-4m§ < 0)
+               else if(this.nHorzSpeed < 0)
                {
-                  this.§_-3i§ = this.§_-5§ * -1;
+                  this.nEyeDestinationHorz = this.nEyeDestDefault * -1;
                }
-               if(this.§_-5V§.x < this.§_-3i§ - this.final)
+               if(this.mc_Eye.x < this.nEyeDestinationHorz - this.nEyeMoveSpeedHorz)
                {
-                  this.§_-5V§.x += this.final;
+                  this.mc_Eye.x += this.nEyeMoveSpeedHorz;
                }
-               else if(this.§_-5V§.x > this.§_-3i§ + this.final)
+               else if(this.mc_Eye.x > this.nEyeDestinationHorz + this.nEyeMoveSpeedHorz)
                {
-                  this.§_-5V§.x -= this.final;
+                  this.mc_Eye.x -= this.nEyeMoveSpeedHorz;
                }
                else
                {
-                  this.§_-5V§.x = this.§_-3i§;
+                  this.mc_Eye.x = this.nEyeDestinationHorz;
                }
                if(MovieClip(root).bMovementInputEnabled)
                {
                   if(MovieClip(root).bDown)
                   {
-                     this.§_-02§ = this.§_-2k§;
+                     this.nEyeDestinationVert = this.nEyeLower;
                   }
                   else
                   {
-                     this.§_-02§ = this.§_-i§;
+                     this.nEyeDestinationVert = this.nEyeUpper;
                   }
-                  if(this.§_-5V§.y < this.§_-02§ - this.§_-34§)
+                  if(this.mc_Eye.y < this.nEyeDestinationVert - this.nEyeMoveSpeedVert)
                   {
-                     this.§_-5V§.y += this.§_-34§;
+                     this.mc_Eye.y += this.nEyeMoveSpeedVert;
                   }
-                  else if(this.§_-5V§.y > this.§_-02§ + this.§_-34§)
+                  else if(this.mc_Eye.y > this.nEyeDestinationVert + this.nEyeMoveSpeedVert)
                   {
-                     this.§_-5V§.y -= this.§_-34§;
+                     this.mc_Eye.y -= this.nEyeMoveSpeedVert;
                   }
                   else
                   {
-                     this.§_-5V§.y = this.§_-02§;
+                     this.mc_Eye.y = this.nEyeDestinationVert;
                   }
                }
                if(MovieClip(root).bZeroGravity)
@@ -580,37 +581,39 @@ package §_-33§
             }
          }
       }
-
-      public function §_-1w§() : void
+      
+      public function GravHop() : void
       {
-         if(this.§_-17§ > this.§_-3z§)
+         if(this.nVertSpeed > this.nGravHopStrength)
          {
-            this.§_-17§ += this.§_-3z§;
+            this.nVertSpeed += this.nGravHopStrength;
          }
       }
-
-      public function §_-6E§() : void
+      
+      public function GC() : void
       {
          if(this.parent)
          {
-            this.removeEventListener(Event.ENTER_FRAME,this.§_-5G§);
+            this.removeEventListener(Event.ENTER_FRAME,this.RunPlayer);
             this.parent.removeChild(this);
          }
       }
-
+      
       internal function frame1() : *
       {
          stop();
       }
-
+      
       internal function frame14() : *
       {
          stop();
       }
-
+      
       internal function frame45() : *
       {
          stop();
       }
    }
 }
+
+
