@@ -27,13 +27,11 @@ var can_doublejump : bool = true
 # -1 is left, 1 is right
 #var last_dir : int = -1
 
-const SPEED := 250.0
-const ACCEL := 10000.0
-const JUMP_VELOCITY := -485.0
+const SPEED := 262.5
+const ACCEL := 2250.0
+const JUMP_VELOCITY := -540
 const FRICTION := 0.4
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+const gravity: float = 1237.5
 
 var prevdir : float = 0
 
@@ -117,8 +115,6 @@ func _move_normal(delta) -> void:
 			velocity.y = JUMP_VELOCITY
 			can_doublejump = false
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction != prevdir:
 		if direction > 0.2:
@@ -150,7 +146,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if has_antigrav:
 			if can_antigrav:
 				if is_on_floor():
-					velocity.y = JUMP_VELOCITY / 2
+					velocity.y = JUMP_VELOCITY / 2.0
 				antigrav = true
 				can_antigrav = false
 				motion_mode = CharacterBody2D.MOTION_MODE_FLOATING

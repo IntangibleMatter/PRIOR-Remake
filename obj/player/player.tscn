@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://8cvtgbcjgv2o"]
 
-[ext_resource type="Script" path="res://obj/player/player.gd" id="1_n8kvi"]
+[ext_resource type="Script" uid="uid://dw3vxlmyds0wk" path="res://obj/player/player.gd" id="1_n8kvi"]
 [ext_resource type="Texture2D" uid="uid://drof25y2pe82p" path="res://assets/graphics/player/player.svg" id="1_owku0"]
 [ext_resource type="Texture2D" uid="uid://bqyqujooe0e3u" path="res://assets/graphics/player/playerfall.svg" id="2_4b8u3"]
 [ext_resource type="Texture2D" uid="uid://dvokx4lw6rm00" path="res://assets/graphics/player/eye.svg" id="3_md2b2"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1cf5g"]
 _data = {
-"RESET": SubResource("Animation_dic3i"),
-"blink": SubResource("Animation_ycly8")
+&"RESET": SubResource("Animation_dic3i"),
+&"blink": SubResource("Animation_ycly8")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mscti"]
@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_3x1m2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1cf5g")
+&"": SubResource("AnimationLibrary_1cf5g")
 }
 autoplay = "RESET"
 
